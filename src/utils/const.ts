@@ -1,0 +1,1 @@
+export const API_URL = `https://test-api-app-for-react.herokuapp.com/api/v1/news`;
