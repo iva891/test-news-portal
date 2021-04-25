@@ -22,20 +22,18 @@ const Content = ({loadNews, loading, setLoading}: ContentPropsType) => {
       response.data.articles && loadNews(response.data.articles);
         setLoading(false);
     });
-}, []);
+});
 
   return (
     < div className="page__content">
       {loading ?
-      <Preloader /> :
-      <div className="page__wrapper">
-        <NewsList />
-        <NewsForm />
-      </div>
-
-    }
-    
-  </div>
+        <Preloader /> :
+        <div className="page__wrapper">
+          <NewsList />
+          <NewsForm />
+        </div>
+      }
+    </div>
   );
 };
 

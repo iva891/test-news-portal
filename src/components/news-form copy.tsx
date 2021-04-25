@@ -33,7 +33,6 @@ const NewsForm = () => {
       }
     });
 
-    console.log(newsForm);
     formRef.current.reset();
   }
 

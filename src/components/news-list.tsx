@@ -1,10 +1,9 @@
-
 import {connect} from 'react-redux';
 import {StateType} from '../types/types';
 import NewsItem from './news-item';
 
 interface NewsListPropsType {
-  news?: any[]
+  news: any[]
 };
 
 const NewsList = ({news}: NewsListPropsType) => {
@@ -27,29 +26,22 @@ const NewsList = ({news}: NewsListPropsType) => {
 
   return (
     <div className="page__news-wrapper">
-    {news.length === 0 ?
-      <h2 className="hor-padding">Новостей нет</h2> :
-      <h2 className="hor-padding">{`${news.length}`} {setQuantityNewsText()}</h2>  
-    }
-    <div className="page__news">
-        {news.map((item) =>
-            <NewsItem item={item} key={item.id} />
-        )}
-    </div>
+      {news.length === 0 ?
+        <h2 className="hor-padding">Новостей нет</h2> :
+        <h2 className="hor-padding">{`${news.length}`} {setQuantityNewsText()}</h2>  
+      }
+      <div className="page__news">
+          {news.map((item) =>
+              <NewsItem item={item} key={item.id} />
+          )}
+      </div>
     </div>
   );
 };
 
-// export default NewsList;
-
 const mapStateToProps = (state: StateType) => ({
   news: state.news,
 });
-
-// const mapDispatchToProps = (dispatch: (arg0: any) => void) => ({
-//   loadNews: (news: any[]) => dispatch(setNews(news)),
-//   setLoading: (status: boolean) => dispatch(setLoading(status)),
-// });
 
 export {NewsList};
 export default connect(mapStateToProps, null)(NewsList);

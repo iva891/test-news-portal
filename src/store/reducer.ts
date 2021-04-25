@@ -1,7 +1,6 @@
 import {ActionTypes} from './action';
 import {StateType} from '../types/types'
 
-
 type ActionType = {
   type: string,
   payload?: any,
@@ -28,8 +27,8 @@ const reducer = (state: StateType = initialState, action: ActionType): StateType
       return {
         ...state,
         news: [
-          ...state.news,
           action.payload,
+          ...state.news,
         ],
       };
     default:
