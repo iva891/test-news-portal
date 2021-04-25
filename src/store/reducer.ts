@@ -1,10 +1,5 @@
 import {ActionTypes} from './action';
-import {StateType} from '../types/types'
-
-type ActionType = {
-  type: string,
-  payload?: any,
-};
+import {StateType, ActionType} from '../types/types'
 
 const initialState: StateType = {
   news: [],
@@ -30,6 +25,12 @@ const reducer = (state: StateType = initialState, action: ActionType): StateType
           action.payload,
           ...state.news,
         ],
+      };
+    case ActionTypes.REMOVE_USER_NEWS:
+      return {
+        ...state,
+        news: state.news.splice(0, state.news.findIndex(elem => elem.id === action.payload))
+              .concat(state.news.splice(state.news.findIndex((elem) => (elem.id === action.payload)) + 1, state.news.length - 1)),
       };
     default:
       return {...state};

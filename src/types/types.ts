@@ -3,9 +3,13 @@ export type StateType = {
   loading: boolean,
 };
 
-export interface NewsItemPropsType {
-  item: {
-    id: number,
+export type ActionType = {
+  type: string,
+  payload?: any,
+};
+
+export interface NewsItemType {
+    id: number | string,
     title: string,
     description: string,
     created_at: Date,
@@ -13,5 +17,4 @@ export interface NewsItemPropsType {
       name: string,
       lastname: string,
     }
-  }
 }

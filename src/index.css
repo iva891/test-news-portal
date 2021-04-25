@@ -92,6 +92,13 @@ hr {
   cursor: pointer;
 }
 
+.form__btn--del-item {
+  width: 100px;
+  min-height: 20px;
+  background-color: #ffcdd2;
+  border: solid 2px #d32f2f;
+}
+
 .form__btn:hover {
   transform: scale(1.05);
 }
